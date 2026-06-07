@@ -1,1 +1,5 @@
-viirs-snpp_2024_Brazil.csv
+data/raw/*.csv
+src/raw/*.csv
+data/processed/*.csv
+data/processed/*.parquet
+__pycache__/
