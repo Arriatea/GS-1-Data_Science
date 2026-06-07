@@ -2,5 +2,6 @@ data/raw/*.csv
 src/raw/*.csv
 data/processed/*.csv
 data/processed/*.parquet
+!data/processed/focos_calor_2024_tratado.parquet
 __pycache__/
 streamlit*.log

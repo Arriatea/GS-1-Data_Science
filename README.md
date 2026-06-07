@@ -165,6 +165,12 @@ Se existir uma base tratada, ela pode ser colocada em:
 data/processed/
 ```
 
+Para o deploy no Streamlit Cloud, o projeto já inclui uma base tratada menor em:
+
+```text
+data/processed/focos_calor_2024_tratado.parquet
+```
+
 ### 3. Rodar o notebook
 
 Abra o arquivo `src/notebooks/analise_focos_de_calor.ipynb` no Jupyter Notebook ou no VS Code e execute as células.
@@ -189,9 +195,32 @@ http://localhost:8501
 
 ---
 
+## Fonte dos Dados
+
+A base utilizada neste projeto foi obtida no portal oficial da **NASA FIRMS / LANCE**.
+
+Link para download dos dados por país e ano:
+
+```text
+https://firms.modaps.eosdis.nasa.gov/country/
+```
+
+Configuração utilizada no projeto:
+
+```text
+Instrument: VIIRS S-NPP
+Year: 2024
+Country: Brazil
+Formato: CSV
+```
+
+---
+
 ## Observação Sobre os Dados
 
 O arquivo CSV da NASA não deve ser enviado para o GitHub.
+
+O deploy usa a base tratada em Parquet dentro de `data/processed/`, que é menor e pode ser versionada.
 
 O `.gitignore` já ignora arquivos em:
 
@@ -201,6 +230,8 @@ src/raw/*.csv
 data/processed/*.csv
 data/processed/*.parquet
 ```
+
+Exceto a base tratada `data/processed/focos_calor_2024_tratado.parquet`, que fica versionada para o deploy funcionar.
 
 Assim, a base fica apenas localmente na máquina de quem está executando o projeto.
 
