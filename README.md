@@ -42,21 +42,29 @@ A análise inclui:
 GS-1-Data_Science
 │
 ├── app.py
-├── preprocessing.ipynb
 ├── requirements.txt
 ├── README.md
 │
 ├── data
 │   ├── raw
-│   │   └── viirs-snpp_2024_Brazil.csv
 │   │
 │   └── processed
 │
 └── src
-    └── imgs
-        ├── bernardo.png
-        ├── foto_marco.jpg
-        └── matheus.png
+    ├── app
+    │   └── app.py
+    │
+    ├── imgs
+    │   ├── bernardo.png
+    │   ├── foto_marco.jpg
+    │   └── matheus.png
+    │
+    ├── notebooks
+    │   └── analise_focos_de_calor.ipynb
+    │
+    └── raw
+        └── viirs-snpp_2024_Brazil.csv
+            (arquivo local, não versionado no Git)
 ```
 
 ---
@@ -125,16 +133,30 @@ O app permite visualizar:
 
 ### 1. Instalar dependências
 
+Se estiver usando o ambiente virtual do projeto no Windows, ative-o antes:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+Depois instale as dependências:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 2. Adicionar a base de dados
 
-Coloque o arquivo CSV original neste caminho:
+Coloque o arquivo CSV original em um destes caminhos:
 
 ```text
 data/raw/viirs-snpp_2024_Brazil.csv
+```
+
+ou
+
+```text
+src/raw/viirs-snpp_2024_Brazil.csv
 ```
 
 Se existir uma base tratada, ela pode ser colocada em:
@@ -145,12 +167,18 @@ data/processed/
 
 ### 3. Rodar o notebook
 
-Abra o arquivo `preprocessing.ipynb` no Jupyter Notebook ou no VS Code e execute as células.
+Abra o arquivo `src/notebooks/analise_focos_de_calor.ipynb` no Jupyter Notebook ou no VS Code e execute as células.
 
 ### 4. Rodar o dashboard Streamlit
 
 ```bash
 streamlit run app.py
+```
+
+Se o terminal não reconhecer o comando `streamlit`, use:
+
+```powershell
+.\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
 Depois, acesse o endereço mostrado no terminal, normalmente:
@@ -168,8 +196,10 @@ O arquivo CSV da NASA não deve ser enviado para o GitHub.
 O `.gitignore` já ignora arquivos em:
 
 ```text
-data/raw/
-data/processed/
+data/raw/*.csv
+src/raw/*.csv
+data/processed/*.csv
+data/processed/*.parquet
 ```
 
 Assim, a base fica apenas localmente na máquina de quem está executando o projeto.

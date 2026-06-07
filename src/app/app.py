@@ -12,7 +12,10 @@ st.set_page_config(
     layout="wide",
 )
 
-RAW_PATH = Path("data/raw/viirs-snpp_2024_Brazil.csv")
+RAW_PATHS = [
+    Path("data/raw/viirs-snpp_2024_Brazil.csv"),
+    Path("src/raw/viirs-snpp_2024_Brazil.csv"),
+]
 PROCESSED_DIR = Path("data/processed")
 
 NUMERIC_COLUMNS = ["frp", "bright_ti4", "bright_ti5", "scan", "track"]
@@ -47,6 +50,13 @@ def _find_processed_file() -> Path | None:
         + sorted(PROCESSED_DIR.glob("*.csv"))
     )
     return candidates[0] if candidates else None
+
+
+def _find_raw_file() -> Path | None:
+    for path in RAW_PATHS:
+        if path.exists():
+            return path
+    return None
 
 
 def _ensure_date_columns(data: pd.DataFrame) -> pd.DataFrame:
@@ -89,17 +99,18 @@ def load_data() -> tuple[pd.DataFrame, pd.DataFrame, str]:
         original = _ensure_date_columns(original)
         return original.copy(), original.copy(), f"Base tratada: {processed_file}"
 
-    if not RAW_PATH.exists():
+    raw_file = _find_raw_file()
+    if raw_file is None:
         return pd.DataFrame(), pd.DataFrame(), "Base não encontrada"
 
     original = pd.read_csv(
-        RAW_PATH,
+        raw_file,
         parse_dates=["acq_date"],
         dtype=_raw_dtypes(),
     )
     original = _ensure_date_columns(original)
     treated = _remove_outliers_iqr(original)
-    return original, treated, f"Base bruta com tratamento no app: {RAW_PATH}"
+    return original, treated, f"Base bruta com tratamento no app: {raw_file}"
 
 
 def apply_filters(data: pd.DataFrame, selected_filters: dict[str, list]) -> pd.DataFrame:
@@ -440,7 +451,8 @@ def main():
     if df.empty:
         st.error(
             "Não encontrei a base de dados. Coloque o arquivo em "
-            "`data/raw/viirs-snpp_2024_Brazil.csv` ou uma base tratada em `data/processed/`."
+            "`data/raw/viirs-snpp_2024_Brazil.csv`, `src/raw/viirs-snpp_2024_Brazil.csv` "
+            "ou uma base tratada em `data/processed/`."
         )
         return
 

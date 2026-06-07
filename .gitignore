@@ -3,3 +3,4 @@ src/raw/*.csv
 data/processed/*.csv
 data/processed/*.parquet
 __pycache__/
+streamlit*.log
