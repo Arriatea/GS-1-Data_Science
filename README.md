@@ -212,11 +212,3 @@ Assim, a base fica apenas localmente na máquina de quem está executando o proj
 | :---: | :---: | :---: | :---: |
 
 ---
-
-## Conclusão
-
-O **SPACE CONECT** mostra como dados de satélite podem ajudar a entender melhor os focos de calor no Brasil.
-
-Com a análise, foi possível observar padrões temporais, diferenças na intensidade dos focos, presença de valores extremos e a importância do `frp` para entender a força dos registros detectados.
-
-O dashboard em Streamlit complementa o notebook, deixando a exploração dos dados mais visual e acessível.
