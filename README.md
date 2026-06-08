@@ -239,7 +239,7 @@ Assim, a base fica apenas localmente na máquina de quem está executando o proj
 
 ## Integrantes do Grupo
 
-| [<img loading="lazy" src="./src/imgs/foto_marco.jpg" width=115><br><sub>Marco Aurélio</sub><br><sub>RM 563827</sub>](https://github.com/Arriatea) | [<img loading="lazy" src="./src/imgs/matheus.png" width=115><br><sub>Matheus Vasques</sub><br><sub>RM 563309</sub>](https://github.com/maatvasques) | [<img loading="lazy" src="./src/imgs/bernardo.png" width=115><br><sub>Bernardo Hanashiro</sub><br><sub>RM 565266</sub>](https://github.com/BernardoYuji) | [<sub>Mariana Egito</sub><br><sub>RM 562544</sub>](https://github.com/marianaegito) |
+| [<img loading="lazy" src="./src/imgs/foto_marco.jpg" width=115><br><sub>Marco Aurélio</sub><br><sub>RM 563827</sub>](https://github.com/Arriatea) | [<img loading="lazy" src="./src/imgs/matheus.png" width=115><br><sub>Matheus Vasques</sub><br><sub>RM 563309</sub>](https://github.com/maatvasques) | [<img loading="lazy" src="./src/imgs/bernardo.png" width=115><br><sub>Bernardo Hanashiro</sub><br><sub>RM 565266</sub>](https://github.com/BernardoYuji) | [<img loading="lazy" src="./src/imgs/mariana.jpg" width=115><br><sub>Mariana Egito</sub><br><sub>RM 562544</sub>](https://github.com/marianaegito) |
 | :---: | :---: | :---: | :---: |
 
 ---
